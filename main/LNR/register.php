@@ -145,5 +145,6 @@ if ($NIM) {
         <input placeholder="password" class="subscribe-input" name="password" type="password">
         <br>
         <button class="submit-btn">SUBMIT</button>
+        <div id="emailHelp" class="form-text">Already have an account? <a href="login.php">Login.</a></div>
+        <br>
     </div>
-<?php?>
