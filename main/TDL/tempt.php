@@ -25,15 +25,20 @@ $hasil = $kunci->query($sql);
         {
             background-image: url("../Profile/bg.webp");
             background-repeat: no-repeat;
-            background-size: cover;
-            backdrop-filter: blur(5px);      
-        }        
+            background-size: cover;  
+        }   
+        
          .table {
             background-color: white;
         } 
         .text-center {
             color: white;
         }
+
+        .action-buttons {
+        display: flex;
+        gap: 10px; 
+    }
     </style>
 </head>
 <body>
@@ -45,6 +50,9 @@ $hasil = $kunci->query($sql);
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="testing.php">Input Data</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="logout.php">Logout</a>
                 </li>
             </ul>
         </div>
@@ -74,21 +82,27 @@ $hasil = $kunci->query($sql);
                             echo "<td>" . $row['tanggal'] . "</td>";
                             echo "<td>" . $row['deskripsi'] . "</td>";
                             echo "<td>" . $row['status'] . "</td>";
+
                             echo "<td class='text-center'>";
                             ?>
-                            <button class="btn bg-primary" onclick="window.location.href='testing_edit.php?id=<?= $row['id']?>'">Edit</button>
-                            <?php
-                            // echo "<input type='hidden' name='id' value='" . $row['id'] . "'>";
-                            // echo "<input type='hidden' name='isEdit' value='1'>";
-                            // echo "<button class='btn btn-dark' type='submit'>Edit</button>";
-                            // echo "</form>";
-                            echo "<form action='process_delete.php' method='post'>";
-                            echo "<input type='hidden' name='id' value='" . $row['id'] . "'>";
-                            echo "<input type='hidden' name='isDelete' value='1'>";
-                            echo "<button class='btn btn-dark' type='submit' onclick='return confirm(\"Hapus data. Apa anda yakin?\")'>Delete</button>";
-                            echo "</form>";
-                            echo "</td>";
-                            echo "</tr>";
+                            
+                            <div class="action-buttons">
+                                <?php
+
+                                echo "<form action='testing_edit.php' method='GET'>";
+                                echo "<input type='hidden' name='id' value='" . $row['id'] . "'>";
+                                echo "<input type='hidden' name='isEdit' value='1'>";
+                                echo "<button class='btn btn-dark' type='submit'>Edit</button>";
+                                echo "</form>";
+      
+                                echo "<form action='process_delete.php' method='post'>";
+                                echo "<input type='hidden' name='id' value='" . $row['id'] . "'>";
+                                echo "<input type='hidden' name='isDelete' value='1'>";
+                                echo "<button class='btn btn-dark' type='submit' onclick='return confirm(\"Hapus data. Apa anda yakin?\")'>Delete</button>";
+                                echo "</form>";
+                                echo "</td>";
+                                echo "</tr>";
+                            
                         }
                         ?>
                     </tbody>

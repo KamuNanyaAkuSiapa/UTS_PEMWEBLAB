@@ -276,7 +276,7 @@ body {
         <div>
             <a href="./main/LNR/login.php" class="ui-btn">
                 <span>
-                  Clik Here
+                  Click Here
                 </span>
             </a>
         </div>
