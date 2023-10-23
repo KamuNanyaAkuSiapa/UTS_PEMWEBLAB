@@ -19,7 +19,7 @@ try {
         $priority = $_POST["priority"];
 
         $sqlInsert = "INSERT INTO todolist (tugas, tanggal, deskripsi, priority, status) 
-                      VALUES (:tugas, :tanggal, :deskripsi, :priority, 'not_started')";
+                      VALUES (:tugas, :tanggal, :deskripsi, :priority, 'not started')";
         $stmt = $kunci->prepare($sqlInsert);
         $stmt->bindParam(':tugas', $tugas);
         $stmt->bindParam(':tanggal', $tanggal);
@@ -59,7 +59,7 @@ try {
     <div class="container-fluid justify-content-center">
         <ul class="navbar-nav navbar-center">
             <li class="nav-item">
-                <a class="nav-link active fw-bold" disabled>To Do List</a>
+                <a class="nav-link active fw-bold" disabled>Input Data</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="tempt.php">To Do List</a>
@@ -71,7 +71,7 @@ try {
 <div class="container-fluid pt-3" style="width: 70%;">
     <div class="row justify-content-center">
         <div class="col-auto">
-            <h2>To Do List</h2>
+            <h2>Masukan Data Kamu</h2>
             <form action="process_task.php" method="POST" enctype="multipart/form-data">
                 <div class="mb-3">
                     <label class="form-label">Task Title</label>
