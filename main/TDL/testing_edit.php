@@ -29,16 +29,13 @@ $row = $hasil->fetch(PDO::FETCH_ASSOC);
 <body>
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
     <div class="container-fluid justify-content-center">
-        <ul class="navbar-nav navbar-center">
-            <li class="nav-item">
-                <a class="nav-link active fw-bold" disabled>Data Mahasiswa</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="home.php">Daftar Mahasiswa</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="index.php">To Do List</a>
-            </li>
+    <ul class="navbar-nav navbar-center">
+        <li class="nav-item">
+            <a class="nav-link active fw-bold" disabled>To Do List</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="testing.php">Input Data</a>
+        </li>
         </ul>
     </div>
 </nav>
