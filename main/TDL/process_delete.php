@@ -21,11 +21,11 @@ $kunci = new PDO($dsn, "root", "");
     }
 
 
-if (!empty($_POST['isAdd'])){
-    addData();
-} elseif (!empty($_POST['isEdit'])){
-    editData();
-} elseif (!empty($_POST['isDelete'])){
-    deleteData();
-}
+// if (!empty($_POST['isAdd'])){
+//     addData();
+// } elseif (!empty($_POST['isEdit'])){
+//     editData();
+// } elseif (!empty($_POST['isDelete'])){
+//     deleteData();
+// }
 ?>

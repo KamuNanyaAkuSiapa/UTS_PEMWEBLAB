@@ -10,7 +10,7 @@ if(!isset($_SESSION['username']))
 $dsn = "mysql:host=localhost;dbname=utspemwebmasbro";
 $kunci = new PDO($dsn, "root", "");
 
-$sql = "SELECT * FROM todolist";
+$sql = "SELECT * FROM todolist ORDER BY status";
 
 $hasil = $kunci->query($sql);
 ?>
@@ -81,7 +81,26 @@ $hasil = $kunci->query($sql);
                             echo "<td>" . $row['tugas'] . "</td>";
                             echo "<td>" . $row['tanggal'] . "</td>";
                             echo "<td>" . $row['deskripsi'] . "</td>";
-                            echo "<td>" . $row['status'] . "</td>";
+                            if($row['status'] == 'In Progress')
+                            {
+                                echo "<td class='bg-warning bg-lighten-xl bg-opacity-25'>" . $row['status'] . "</td>";
+                            }
+                                else if ($row['status'] == 'Waiting On')
+                                {
+                                    echo "<td class='bg-info bg-lighten-xl bg-opacity-25'>" . $row['status'] . "</td>";
+                                }
+                                    else if ($row['status'] == 'On Hold')
+                                    {
+                                        echo "<td class='bg-primary bg-lighten-xl bg-opacity-25'>" . $row['status'] . "</td>";
+                                    }
+                                        else if ($row['status'] == 'Done')
+                                        {
+                                            echo "<td class='bg-success bg-lighten-xl bg-opacity-25'>" . $row['status'] . "</td>";
+                                        }
+                                            else
+                                            {
+                                                echo "<td class='bg-danger bg-lighten-xl bg-opacity-25'>" . $row['status'] . "</td>";
+                                            }
 
                             echo "<td class='text-center'>";
                             ?>
@@ -99,16 +118,33 @@ $hasil = $kunci->query($sql);
                                 echo "<input type='hidden' name='id' value='" . $row['id'] . "'>";
                                 echo "<input type='hidden' name='isDelete' value='1'>";
                                 echo "<button class='btn btn-dark' type='submit' onclick='return confirm(\"Hapus data. Apa anda yakin?\")'>Delete</button>";
-                                echo "</form>";
-                                echo "</td>";
-                                echo "</tr>";
-                            
-                        }
+                                ?>
+
+                                <div class="btn-group mx-1">
+                                    <button type="button" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Change Status
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="inProgress.php?id=<?= $row['id'] ?>">In Progress</a></li>
+                                        <li><a class="dropdown-item" href="waitingOn.php?id=<?= $row['id'] ?>">Waiting On</a></li>
+                                        <li><a class="dropdown-item" href="onHold.php?id=<?= $row['id'] ?>">On Hold</a></li>
+                                        <li><a class="dropdown-item" href="Done.php?id=<?= $row['id'] ?>">Done</a></li>
+                                    </ul>
+                                </div>
+                                
+                                <?php
+                                    echo "</form>";
+                                    echo "</td>";
+                                    echo "</tr>";
+                                ?>
+                        <?php
+                            }
                         ?>
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 </html>
