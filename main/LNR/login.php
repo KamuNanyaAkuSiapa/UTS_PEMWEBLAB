@@ -134,7 +134,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <input placeholder="password" class="subscribe-input" name="password" type="password">
         <br>
         <div id="emailHelp" class="form-text">Don't have an account? <a href="register.php">Register.</a></div>
-        <div id="emailHelp" class="form-text">Forgot Password ? <a href="LupaPassword.php">Reset Password</a></div>
+        <div id="emailHelp" class="form-text">Forgot Password? <a href="LupaPassword.php">Reset Password</a></div>
         <br>
         <button class="submit-btn">SUBMIT</button>
     </div>
