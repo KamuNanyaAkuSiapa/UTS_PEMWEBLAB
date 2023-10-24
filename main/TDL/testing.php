@@ -3,6 +3,13 @@ $dsn = "mysql:host=localhost;dbname=utspemwebmasbro";
 $username = "root";
 $password = "";
 
+session_start();
+
+if(isset($_SESSION["user_id"]))
+{
+    Header("Location: ../LNR/login.php");
+}
+
 try {
     $kunci = new PDO($dsn, $username, $password);
     $kunci->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

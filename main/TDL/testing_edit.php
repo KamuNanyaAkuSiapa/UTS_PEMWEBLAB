@@ -1,5 +1,12 @@
 <?php
 
+session_start();
+
+if(isset($_SESSION['user_id']))
+{
+    header('Location: ../LNR/login.php');
+}
+
 $dsn = "mysql:host=localhost;dbname=utspemwebmasbro";
 $kunci = new PDO($dsn, "root", "");
 $id = $_GET['id'];
