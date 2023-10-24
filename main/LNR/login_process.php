@@ -28,11 +28,14 @@ if (!$row) {
       </script>';
 } else {
     // check if the password is correct
-    echo "USERNAME ada di database<br />";
-    echo "Password yang di input di form login: " . $password;
-    echo "<br />Password yang tersimpan di database: " . $row['password'];
+    // echo "USERNAME ada di database<br />";
+    // echo "Password yang di input di form login: " . $password;
+    // echo "<br />Password yang tersimpan di database: " . $row['password'];
     if (!password_verify($password, $row['password'])) {
-        echo "<br /> Wrong password";
+      echo '<script>
+        alert("Password anda Salah");
+        window.location.href="login.php";
+        </script>';
     } else {
         session_start();
         // Login success, set SESSION DATA

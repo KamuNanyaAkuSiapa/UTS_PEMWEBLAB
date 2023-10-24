@@ -6,15 +6,15 @@
 $dsn = "mysql:host=localhost;dbname=utspemwebmasbro";
 $kunci = new PDO($dsn, "root", "");
 
-$title = "Login";
+$title = "Lupa Password";
 
-session_start(); // Mulai sesi
+// session_start(); // Mulai sesi
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (isset($_POST['username'])) {
-        $_SESSION['username'] = $_POST['username']; // Simpan username ke dalam sesi
-    }
-}
+// if ($_SERVER["REQUEST_METHOD"] == "POST") {
+//     if (isset($_POST['username'])) {
+//         $_SESSION['username'] = $_POST['username']; // Simpan username ke dalam sesi
+//     }
+// }
 ?>
 
 <!doctype html>
@@ -127,14 +127,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <div class="col-auto">
 
     <div class="subscribe">
-        <p>LOGIN</p>
-        <form action="login_process.php" method="post">
+        <p>Sebutkan Username</p>
+        <form action="LupaPassword_reset.php" method="post">
         <input placeholder="username" class="subscribe-input" name="username" type="text">
         <br>
-        <input placeholder="password" class="subscribe-input" name="password" type="password">
-        <br>
+        <!-- <input placeholder="password" class="subscribe-input" name="password" type="password">
+        <br> -->
         <div id="emailHelp" class="form-text">Don't have an account? <a href="register.php">Register.</a></div>
-        <div id="emailHelp" class="form-text">Forgot Password ? <a href="LupaPassword.php">Reset Password</a></div>
         <br>
         <button class="submit-btn">SUBMIT</button>
     </div>
