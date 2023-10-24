@@ -23,9 +23,9 @@ $hasil = $kunci->query($sql);
     <style>
          body
         {
-            background-image: url("../Profile/bg.webp");
+            background-image: url("../Profile/livebg1.webp");
             background-repeat: no-repeat;
-            background-size: cover;  
+            background-size: cover;
         }   
         
          .table {

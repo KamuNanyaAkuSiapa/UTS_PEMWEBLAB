@@ -3,13 +3,6 @@ $dsn = "mysql:host=localhost;dbname=utspemwebmasbro";
 $username = "root";
 $password = "";
 
-session_start();
-
-if(!isset($_SESSION["user_id"]))
-{
-    Header("Location: ../LNR/login.php");
-}
-
 try {
     $kunci = new PDO($dsn, $username, $password);
     $kunci->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -53,11 +46,11 @@ try {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <style>
         body {
-            background-image: url("../Profile/bg1.webp");
+            background-image: url("../Profile/livebg1.webp");
             background-repeat: no-repeat;
             background-size: cover;
             backdrop-filter: blur(5px);
-            color: white;
+            color: white; 
         }
     </style>
 </head>
@@ -66,7 +59,7 @@ try {
     <div class="container-fluid justify-content-center">
         <ul class="navbar-nav navbar-center">
             <li class="nav-item">
-                <a class="nav-link active fw-bold" disabled>To Do List</a>
+                <a class="nav-link active fw-bold" disabled>Input Data</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="tempt.php">To Do List</a>
