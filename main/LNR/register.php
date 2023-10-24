@@ -6,21 +6,8 @@
 $dsn = "mysql:host=localhost;dbname=utspemwebmasbro";
 $kunci = new PDO($dsn, "root", "");
 
-$title = "Edit Mahasiswa";
+$title = "Register";
 
-$NIM = isset($_POST['NIM']) ? $_POST['NIM'] : '';
-
-if ($NIM) {
-    $sql = "SELECT * FROM mahasiswa WHERE NIM = ?";
-
-    $stmt = $kunci->prepare($sql);
-    $data = [$NIM];
-    $stmt->execute($data);
-    $row = $stmt->fetch(PDO::FETCH_ASSOC);
-} else {
-    
-    $row = [];
-}
 ?>
 
 <!doctype html>
@@ -31,9 +18,12 @@ if ($NIM) {
         <style>
         body
         {
-            background-image: url("../Profile/bg3.webp");
+            background-image: url("../Profile/livebg.webp");
             background-repeat: no-repeat;
             background-size: cover;
+            align-items: center; 
+            justify-content: center;
+            display: flex;
             backdrop-filter: blur(5px);
             color: white;      
         } 
@@ -123,15 +113,6 @@ if ($NIM) {
     </style>   
     </head>
 <body>
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-  <div class="container-fluid justify-content-center">
-    <ul class="navbar-nav navbar-center">
-      <li class="nav-item">
-        <a class="nav-link active fw-bold" disabled>Registrasi dulu masbro</a>
-      </li>
-    </ul>
-  </div>
-</nav>
 
 <div class="container-fluid pt-3" style="width: 70%;">
 <div class="row justify-content-center">

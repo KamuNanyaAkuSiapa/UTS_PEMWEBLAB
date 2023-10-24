@@ -140,6 +140,9 @@ $hasil = $kunci->query($sql);
                         <?php
                             }
                         ?>
+
+                            
+
                     </tbody>
                 </table>
             </div>

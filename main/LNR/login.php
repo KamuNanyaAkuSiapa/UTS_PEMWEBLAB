@@ -6,20 +6,14 @@
 $dsn = "mysql:host=localhost;dbname=utspemwebmasbro";
 $kunci = new PDO($dsn, "root", "");
 
-$title = "Edit Mahasiswa";
+$title = "Login";
 
-$NIM = isset($_POST['NIM']) ? $_POST['NIM'] : '';
+session_start(); // Mulai sesi
 
-if ($NIM) {
-    $sql = "SELECT * FROM mahasiswa WHERE NIM = ?";
-
-    $stmt = $kunci->prepare($sql);
-    $data = [$NIM];
-    $stmt->execute($data);
-    $row = $stmt->fetch(PDO::FETCH_ASSOC);
-} else {
-    
-    $row = [];
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (isset($_POST['username'])) {
+        $_SESSION['username'] = $_POST['username']; // Simpan username ke dalam sesi
+    }
 }
 ?>
 
@@ -31,11 +25,15 @@ if ($NIM) {
         <style>
         body
         {
-            background-image: url("../Profile/bg3.webp");
+            background-image: url("../Profile/livebg.webp");
             background-repeat: no-repeat;
             background-size: cover;
+            align-items: center; 
+            justify-content: center;
+            display: flex;
             backdrop-filter: blur(5px);
-            color: white;      
+            color: white; 
+                 
         } 
         /* CSS untuk form login */
         .login-form {
@@ -123,15 +121,6 @@ if ($NIM) {
     </style>   
     </head>
 <body>
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-  <div class="container-fluid justify-content-center">
-    <ul class="navbar-nav navbar-center">
-      <li class="nav-item">
-        <a class="nav-link active fw-bold" disabled>Login dulu masbro</a>
-      </li>
-    </ul>
-  </div>
-</nav>
 
 <div class="container-fluid pt-3" style="width: 70%;">
 <div class="row justify-content-center">

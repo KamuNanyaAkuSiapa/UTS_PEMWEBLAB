@@ -23,7 +23,7 @@ if (!$row) {
         }
 
         document.addEventListener("DOMContentLoaded", function() {
-          playSound("../Profile/siapa.mp3");
+          playSound("../Profile/kamu_siapa.mp3");
         });
       </script>';
 } else {
@@ -32,7 +32,7 @@ if (!$row) {
     echo "Password yang di input di form login: " . $password;
     echo "<br />Password yang tersimpan di database: " . $row['password'];
     if (!password_verify($password, $row['password'])) {
-        echo "Wrong password";
+        echo "<br /> Wrong password";
     } else {
         session_start();
         // Login success, set SESSION DATA
