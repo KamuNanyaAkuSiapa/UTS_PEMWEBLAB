@@ -10,7 +10,7 @@ if(!isset($_SESSION['username']))
 $dsn = "mysql:host=localhost;dbname=utspemwebmasbro";
 $kunci = new PDO($dsn, "root", "");
 
-$sql = "SELECT * FROM todolist ORDER BY status";
+$sql = "SELECT * FROM todolist ORDER BY priority, status";
 
 $hasil = $kunci->query($sql);
 ?>
